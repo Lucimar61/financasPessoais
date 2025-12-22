@@ -26,3 +26,32 @@ function popularSubcategorias() {
         subcategoriaSelect.disabled = false;
     }
 }
+
+// Função para cadastrar uma despesa.
+//===================================================================================
+
+function cadastrarDespesas(event) {
+    // 1. Intercepta o envio padrão (que recarregaria a página)
+    event.preventDefault();
+
+    console.log("O botão salvar foi clicado e a função iniciada!");
+
+    // 2. Coleta os dados que o usuário digitou na View (DOM)
+    const dadosFormulario = {
+        tipo: document.getElementById('despesa-tipo').value,
+        categoria: document.getElementById('despesa-categoria').value,
+        subcategoria: document.getElementById('despesa-subcategoria').value,
+        valor: document.getElementById('despesa-valor').value,
+        observacoes: document.getElementById('despesa-observacoes').value
+    };
+
+    // 3. Validação simples antes de mandar para o banco
+    if (!dadosFormulario.valor || !dadosFormulario.categoria) {
+        alert("Preencha os campos obrigatórios!");
+        return;
+    }
+
+    // 4. Aqui você chamará o MODEL para salvar no banco
+    //console.log("Dados prontos para o Model:", dadosFormulario);
+    DespesaModel.salvar(dadosFormulario);
+}

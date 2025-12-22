@@ -20,7 +20,7 @@
             <nav class="sidebar-nav">
                 <a href="index.html" class="nav-item">
                     <span class="icon"><i class="bi bi-graph-up"></i></span>
-                    Cadastro despesas
+                    Cadastro Receitas
                 </a>
                 <a href="despesas.html" class="nav-item">
                     <span class="icon"><i class="bi bi-graph-down"></i></span>
@@ -69,10 +69,10 @@
             <div class="form-container">
                 <div class="form-header">
                     <h3>Nova Despesa</h3>    
-                    <button class="btn btn-sucess"><i class="bi bi-floppy-fill"></i>  Salvar Despesa</button>
+                    <button type="submit" class="btn btn-sucess" form="despesa-form"><i class="bi bi-floppy-fill"></i>  Salvar Despesa</button>
                 </div>
 
-                <form id="despesa-form">
+                <form id="despesa-form" onsubmit="cadastrarDespesas(event)">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="despesa-tipo">Tipo Despesa</label>
@@ -173,7 +173,9 @@
         </div>
     </div>
 
+    
     <script src="js/models/categorias.js"></script>
+    <script src="js/models/despesasModel.js"></script>
     <script src="js/controller/despesasController.js"></script>
 </body>
 </html>
